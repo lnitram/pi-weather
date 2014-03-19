@@ -48,7 +48,33 @@ cd weewx-x.x.x
 ./setup.py build
 sudo ./setup.py install
 ```
+Configuration:
 
+copy original config-file:
+```
+cd /home/weewx
+sudo cp weewx.conf weewx-own.conf
 
+# change some settings
+sudo vim weewx-own.conf
+
+[Station]
+location = city,country
+latitude = xx.xxx
+longitude = yy.yyy
+altitude = xx, meter
+station_type = TE923
+
+[TE923]
+model = TE831X
+
+[StdReport]
+  [[StandardReport]]
+    skin = Own
+
+[StdArchive]
+  archive_interval = 60
+
+```
 
   
