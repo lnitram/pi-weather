@@ -11,6 +11,9 @@ Some scripts and howtos, to use the raspberry pi for weather stuff
 ```
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get autoclean
+sudo apt-get autoremove
 sudo rpi-update
 sudo reboot
 ```
