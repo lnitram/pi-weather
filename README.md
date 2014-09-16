@@ -97,7 +97,7 @@ sudo vim skin.conf
 
 # save and exit
 
-cd /home/weeewx
+cd /home/weewx
 sudo ./bin/weewxd weewx-own.conf
 
 # now you should see some loop-data. Should look like this:
