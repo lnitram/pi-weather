@@ -107,6 +107,27 @@ sudo ./bin/weewxd weewx-own.conf
 
 ```
 
+Run as daemon
+
+```
+sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
+
+# change path to config-file in init-script:
+sudo vim /etc/init.d/weewx
+
+WEEWX_CFG=/home/weewx/weewx-own.conf
+
+# save and exit
+
+/etc/init.d/weewx start
+
+# enable autostart
+
+update-rc.d weewx defaults 98
+
+```
+
+
 Install webserver (nginx)
 
 ```
