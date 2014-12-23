@@ -1,0 +1,144 @@
+#encoding UTF-8
+{
+  "title":"Aktuelle Werte",
+  "location":"$station.location",
+  "time":"$current.dateTime",
+  "lat":"$station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2]",
+  "lon":"$station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2]",
+  "alt":"$station.altitude",
+  "hardware":"$station.hardware",
+  "uptime":"$station.uptime",
+  "serverUptime":"$station.os_uptime",
+  "weewxVersion":"$station.version",
+  "stats": {
+    "current": {
+      "outTemp":"$current.outTemp",
+      "windchill":"$current.windchill",
+      "heatIndex":"$current.heatindex",
+      "dewpoint":"$current.dewpoint",
+      "humidity":"$current.outHumidity",
+      "insideHumidity":"$current.inHumidity",
+      "barometer":"$current.barometer",
+      "barometerTrendDelta":"$trend.time_delta.hour.format("%.0f")",
+      "barometerTrendData":"$trend.barometer",
+      "windSpeed":"$current.windSpeed",
+      "windDir":"$current.windDir",
+      "windDirText":"$current.windDir.ordinal_compass",
+      "windGust":"$current.windGust",
+      "windGustDir":"$current.windGustDir",
+      "rainRate":"$current.rainRate",
+      #if $day.extraTemp1.has_data
+      "pondTemp":"$current.extraTemp1",
+      #end if
+      #if $day.UV.has_data
+      "UV":"$current.UV",
+      #end if
+      #if $day.ET.has_data and $day.ET.sum.raw > 0.0
+      "ET":"$current.ET",
+      #end if
+      #if $day.radiation.has_data
+      "solarRadiation":"$current.radiation",
+      #end if
+      "insideTemp":"$current.inTemp"
+    },
+        "sinceMidnight": {
+      "tempMaxValue":"$day.outTemp.max",
+      "tempMaxTime":"$day.outTemp.maxtime",
+      "tempMinValue":"$day.outTemp.min",
+      "tempMinTime":"$day.outTemp.mintime",
+      "heatIndexMaxValue":"$day.heatindex.max",
+      "heatIndexMaxTime":"$day.heatindex.maxtime",
+      "windchillMinValue":"$day.windchill.min",
+      "windchillMinTime":"$day.windchill.mintime",
+      "humidityMaxValue":"$day.outHumidity.max",
+      "humidityMaxTime":"$day.outHumidity.maxtime",
+      "humidityMinValue":"$day.outHumidity.min",
+      "humidityMinTime":"$day.outHumidity.mintime",
+      "dewpointMaxValue":"$day.dewpoint.max",
+      "dewpointMaxTime":"$day.dewpoint.maxtime",
+      "dewpointMinValue":"$day.dewpoint.min",
+      "dewpointMinTime":"$day.dewpoint.mintime",
+      "barometerMaxValue":"$day.barometer.max",
+      "barometerMaxTime":"$day.barometer.maxtime",
+      "barometerMinValue":"$day.barometer.min",
+      "barometerMinTime":"$day.barometer.mintime",
+      "rainSum":"$day.rain.sum",
+      "rainRateMaxValue":"$day.rainRate.max",
+      "rainRateMaxTime":"$day.rainRate.maxtime",
+      "windMaxValue":"$day.wind.max",
+      "windMaxGustDir":"$day.wind.gustdir",
+      "windMaxTime":"$day.wind.maxtime",
+      "windAvg":"$day.wind.avg",
+      "windRms":"$day.wind.rms",
+      "windVecAvg":"$day.wind.vecavg",
+      "windVecDir":"$day.wind.vecdir",
+      #if $day.extraTemp1.has_data
+      "pondTempMaxValue":"$day.extraTemp1.max",
+      "pondTempMaxTime":"$day.extraTemp1.maxtime",
+      "pondTempMinValue":"$day.extraTemp1.min",
+      "pondTempMinTime":"$day.extraTemp1.mintime",
+       #end if
+       #if $day.UV.has_data
+       "UVMaxValue":"$day.UV.max",
+       "UVMaxTime":"$day.UV.maxtime",
+       "UVMinValue":"$day.UV.min",
+       "UVMinTime":"$day.UV.mintime",
+       #end if
+       #if $day.ET.has_data and $day.ET.sum.raw >0.0
+       "ETMaxValue":"$day.ET.max",
+       "ETMaxTime":"$day.ET.maxtime",
+       "ETMinValue":$day.ET.min",
+       "ETMinTime":"$day.ET.mintime",
+       #end if
+       #if $day.radiation.has_data
+       "radiationMaxValue":"$day.radiation.max",
+       "radiationMaxTime":"$day.radiation.maxtime",
+       "radiationMinValue":"$day.radiation.min",
+       "radiationMinTime":"$day.radiation.mintime",
+       #end if
+       "inTempMaxValue":"$day.inTemp.max",
+       "inTempMaxTime":"$day.inTemp.maxtime",
+       "inTempMinValue":"$day.inTemp.min",
+       "inTempMinTime":"$day.inTemp.mintime"
+    }
+  },
+  "almanach":{
+    #if $almanac.hasExtras
+    "sun":{
+      "startCivilTwilight":"$almanac(horizon=-6).sun(use_center=1).rise",
+      "sunrise":"$almanac.sun.rise",
+      "transit":"$almanac.sun.transit",
+      "sunset":"$almanac.sun.set",
+      "endCivilTwilight":"$almanac(horizon=-6).sun(use_center=1).set",
+      "azimuth":"$("%.1f&deg;" % $almanac.sun.az)",
+      "altitude":"$("%.1f&deg;" % $almanac.sun.alt)",
+      "rightAscension":"$("%.1f&deg;" % $almanac.sun.ra)",
+      "declination":"$("%.1f&deg;" % $almanac.sun.dec)",
+      "equinox":"$almanac.next_equinox",
+      "solstice":"$almanac.next_solstice"
+    },
+    "moon":{
+      "rise":"$almanac.moon.rise",
+      "transit":"$almanac.moon.transit",
+      "set":"$almanac.moon.set",
+      "azimuth":"$("%.1f&deg;" % $almanac.moon.az)",
+      "altitude":"$("%.1f&deg;" % $almanac.moon.alt)",
+      "rightAscension":"$("%.1f&deg;" % $almanac.moon.ra)",
+      "declination":"$("%.1f&deg;" % $almanac.moon.dec)",
+      "fullMoon":"$almanac.next_full_moon",
+      "newMoon":"$almanac.next_new_moon",
+      "phase":"$almanac.moon_phase",
+      "fullness":"$almanac.moon_fullness%"
+    }
+    #else
+    "sun":{
+      "sunrise":"$almanac.sunrise",
+      "sunset":"$almanac.sunset",
+    },
+    "moon":{
+      "phase":"$almanac.moon_phase",
+      "fullness":"$almanac.moon_fullness%"
+    }
+    #end if
+  }
+}
