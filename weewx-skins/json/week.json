@@ -1,0 +1,128 @@
+#encoding UTF-8
+{
+  "title":"Wöchentliche Übersicht",
+  "location":"$station.location",
+  "time":"$current.dateTime",
+  "stats":{
+    "thisWeek": {
+      "tempMaxValue":"$week.outTemp.max",
+      "tempMaxTime":"$week.outTemp.maxtime",
+      "tempMinValue":"$week.outTemp.min",
+      "tempMinTime":"$week.outTemp.mintime",
+      "heatIndexMaxValue":"$week.heatindex.max",
+      "heatIndexMaxTime":"$week.heatindex.maxtime",
+      "windChillMinValue":"$week.windchill.min",
+      "windChillMinTime":"$week.windchill.mintime",
+      "humidityMaxValue":"$week.outHumidity.max",
+      "humidityMaxTime":"$week.outHumidity.maxtime",
+      "humidityMinValue":"$week.outHumidity.min",
+      "humidityMinTime":"$week.outHumidity.mintime",
+      "dewpointMaxValue":"$week.dewpoint.max",
+      "dewpointMaxTime":"$week.dewpoint.maxtime",
+      "dewpointMinValue":"$week.dewpoint.min",
+      "dewpointMinTime":"$week.dewpoint.mintime",
+      "barometerMaxValue":"$week.barometer.max",
+      "barometerMaxTime":"$week.barometer.maxtime",
+      "barometerMinValue":"$week.barometer.min",
+      "barometerMinTime":"$week.barometer.mintime",
+      "rainSum":"$week.rain.sum",
+      "rainRateMaxValue":"$week.rainRate.max",
+      "rainRateMaxTime":"$week.rainRate.maxtime",
+      "windMaxValue":"$week.wind.max",
+      "windMaxGustDir":"$week.wind.gustdir",
+      "windMaxTime":"$week.wind.maxtime",
+      "windAvg":"$week.wind.avg",
+      "windRms":"$week.wind.rms",
+      "windVecAvg":"$week.wind.vecavg",
+      "windVecDir":"$week.wind.vecdir",
+      #if $week.extraTemp1.has_data
+      "highPondValue":"$week.extraTemp1.max",
+      "highPondTime":"$week.extraTemp1.maxtime",
+      "lowPondValue":"$week.extraTemp1.min",
+      "lowPondTime":"$week.extraTemp1.mintime",
+      #end if
+      #if $week.UV.has_data
+      "highUvValue":"$week.UV.max",
+      "highUvTime":"$week.UV.maxtime",
+      "lowUvValue":"$week.UV.min",
+      "lowUvTime":"$week.UV.mintime",
+      #end if
+      #if $week.ET.has_data and $week.ET.sum.raw >0.0
+      "highEtValue":"$week.ET.max",
+      "highEtTime":"$week.ET.maxtime",
+      "lowEtValue":"$week.ET.min",
+      "lowEtTime":"$week.ET.mintime",
+      #end if
+      #if $week.radiation.has_data
+      "highRadiationValue":"$week.radiation.max",
+      "highRadiationTime":"$week.radiation.maxtime",
+      "lowRadiationValue":"$week.radiation.min",
+      "lowRadiationTime":"$week.radiation.mintime",
+      #end if
+      "inTempMaxValue":"$week.inTemp.max",
+      "inTempMaxTime":"$week.inTemp.maxtime",
+      "inTempMinValue":"$week.inTemp.min",
+      "inTempMinTime":"$week.inTemp.mintime"
+    },
+    "thisMonth": {
+      "tempMaxValue":"$month.outTemp.max",
+      "tempMaxTime":"$month.outTemp.maxtime",
+      "tempMinValue":"$month.outTemp.min",
+      "tempMinTime":"$month.outTemp.mintime",
+      "heatIndexMaxValue":"$month.heatindex.max",
+      "heatIndexMaxTime":"$month.heatindex.maxtime",
+      "windChillMinValue":"$month.windchill.min",
+      "windChillMinTime":"$month.windchill.mintime",
+      "humidityMaxValue":"$month.outHumidity.max",
+      "humidityMaxTime":"$month.outHumidity.maxtime",
+      "humidityMinValue":"$month.outHumidity.min",
+      "humidityMinTime":"$month.outHumidity.mintime",
+      "dewpointMaxValue":"$month.dewpoint.max",
+      "dewpointMaxTime":"$month.dewpoint.maxtime",
+      "dewpointMinValue":"$month.dewpoint.min",
+      "dewpointMinTime":"$month.dewpoint.mintime",
+      "barometerMaxValue":"$month.barometer.max",
+      "barometerMaxTime":"$month.barometer.maxtime",
+      "barometerMinValue":"$month.barometer.min",
+      "barometerMinTime":"$month.barometer.mintime",
+      "rainSum":"$month.rain.sum",
+     "rainRateMaxValue":"$month.rainRate.max",
+      "rainRateMaxTime":"$month.rainRate.maxtime",
+      "windMaxValue":"$month.wind.max",
+      "windMaxGustDir":"$month.wind.gustdir",
+      "windMaxTime":"$month.wind.maxtime",
+      "windAvg":"$month.wind.avg",
+      "windRms":"$month.wind.rms",
+      "windVecAvg":"$month.wind.vecavg",
+      "windVecDir":"$month.wind.vecdir",
+      #if $month.extraTemp1.has_data
+      "highPondValue":"$month.extraTemp1.max",
+      "highPondTime":"$month.extraTemp1.maxtime",
+      "lowPondValue":"$month.extraTemp1.min",
+      "lowPondTime":"$month.extraTemp1.mintime",
+      #end if
+      #if $week.UV.has_data
+      "highUvValue":"$month.UV.max",
+      "highUvTime":"$month.UV.maxtime",
+      "lowUvValue":"$month.UV.min",
+      "lowUvTime":"$month.UV.mintime",
+      #end if
+      #if $week.ET.has_data and $week.ET.sum.raw >0.0
+      "highEtValue":"$month.ET.max",
+      "highEtTime":"$month.ET.maxtime",
+      "lowEtValue":"$month.ET.min",
+      "lowEtTime":"$month.ET.mintime",
+      #end if
+      #if $week.radiation.has_data
+      "highRadiationValue":"$month.radiation.max",
+      "highRadiationTime":"$month.radiation.maxtime",
+      "lowRadiationValue":"$month.radiation.min",
+      "lowRadiationTime":"$month.radiation.mintime",
+      #end if
+      "inTempMaxValue":"$month.inTemp.max",
+      "inTempMaxTime":"$month.inTemp.maxtime",
+      "inTempMinValue":"$month.inTemp.min",
+      "inTempMinTime":"$month.inTemp.mintime"
+    }
+  }
+}
