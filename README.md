@@ -56,10 +56,10 @@ Configuration:
 ```
 # copy original config-file:
 cd /home/weewx
-sudo cp weewx.conf weewx-own.conf
+sudo cp weewx.conf weewx-original.conf
 
 # change some settings
-sudo vim weewx-own.conf
+sudo vim weewx.conf
 
 [Station]
 location = city,country
@@ -98,7 +98,7 @@ sudo vim skin.conf
 # save and exit
 
 cd /home/weewx
-sudo ./bin/weewxd weewx-own.conf
+sudo ./bin/weewxd weewx.conf
 
 # now you should see some loop-data. Should look like this:
 # LOOP:   2014-03-19 22:22:42 CET (1395264162) {'outTempBatteryStatus': True, ...}
@@ -111,13 +111,6 @@ Run as daemon
 
 ```
 sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
-
-# change path to config-file in init-script:
-sudo vim /etc/init.d/weewx
-
-WEEWX_CFG=/home/weewx/weewx-own.conf
-
-# save and exit
 
 /etc/init.d/weewx start
 
